@@ -10,7 +10,7 @@
   --color-white: #ffffff;
 
   /* Gradients */
-  --gradient-hero: linear-gradient(135deg, var(--color-primary) 0%, #2c5d85 100%);
+  --gradient-hero: linear-gradient(135deg, var(--color-primary) 0%, #245b7a 100%);
   --gradient-accent: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
 
   /* Fonts */
@@ -195,12 +195,15 @@ section:nth-child(even) {
 
 /* Cards & Grids */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--spacing-lg);
 }
 
 .card {
+  flex: 1 1 300px;
+  max-width: 350px;
   background: var(--color-white);
   padding: var(--spacing-lg);
   border-radius: var(--radius-md);

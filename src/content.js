@@ -47,26 +47,26 @@ export const content = {
       contact: "Contact"
     },
     hero: {
-      title: "Borealytics : Votre Partenaire en Transformation de Données",
+      title: "Borealytics\u00A0: Votre partenaire en transformation de données",
       subtitle: "Exploitez la puissance de vos données."
     },
     mission: {
-      title: "Notre Mission",
+      title: "Notre mission",
       text: "Chez Borealytics, nous aidons les PME et les organisations municipales à maîtriser leurs données. Notre mission est de simplifier l'accès et l'utilisation de vos informations pour transformer vos défis en opportunités stratégiques.",
       points: [
-        "Structurer vos données : Pour une meilleure organisation et accessibilité.",
-        "Fournir des outils d'automatisation : Pour un gain d'efficacité.",
-        "Proposer des solutions d'Intelligence d'affaires : Pour des décisions agiles et éclairées.",
-        "Offrir un coaching personnalisé : Pour renforcer vos compétences internes.",
-        "Proposer des solutions d'IA : Pour optimiser l'analyse et la prise de décision."
+        "Structurer vos données&nbsp;: Pour une meilleure organisation et accessibilité.",
+        "Fournir des outils d'automatisation&nbsp;: Pour un gain d'efficacité.",
+        "Proposer des solutions d'intelligence d'affaires&nbsp;: Pour des décisions agiles et éclairées.",
+        "Offrir un coaching personnalisé&nbsp;: Pour renforcer vos compétences internes.",
+        "Proposer des solutions d'IA&nbsp;: Pour optimiser l'analyse et la prise de décision."
       ]
     },
     vision: {
-      title: "Notre Vision",
+      title: "Notre vision",
       text: "Nous aspirons à un avenir où la prise de décision basée sur les données est intuitive, intégrée et un moteur de prospérité locale. Nous sommes votre partenaire de confiance, bâtissant des relations basées sur la confiance et l'expertise."
     },
     values: {
-      title: "Nos Valeurs",
+      title: "Nos valeurs",
       list: [
         { title: "Pédagogie", desc: "Transfert de connaissances pour bâtir une autonomie durable." },
         { title: "Pragmatisme", desc: "Solutions concrètes adaptées à votre réalité." },
