@@ -28,17 +28,13 @@ export const cvContent = {
         },
         summary: {
             title: "Résumé Professionnel",
-            text: "Ingénieur électrique et PMP avec 15+ ans d'expérience en transformation numérique, gestion de projet et optimisation opérationnelle. Expert en Business Intelligence, analyse de données et amélioration continue. Passionné par l'innovation technologique au service de l'efficacité organisationnelle."
+            text: "Expert en transformation numérique et ingénieur d'expérience cumulant plus de 15 ans en gestion. Je combine une expertise technique en BI (SQL, Tableau) et en amélioration continue (Lean, Six Sigma) pour aider les PME à structurer leurs données."
         },
         skills: {
             title: "Compétences Clés",
-            technical: {
-                title: "Techniques",
-                items: ['SQL', 'Tableau', 'Power BI', 'Python', 'Excel Avancé', 'VBA']
-            },
-            management: {
-                title: "Gestion",
-                items: ['Gestion de projet', 'Leadership', 'Analyse d\'affaires', 'Budgétisation', 'KPI']
+            digital: {
+                title: "Numérique & Data",
+                items: ['Business Intelligence', 'Tableau', 'SQL', 'Excel Avancé', 'Office 365', 'Diagnostic Numérique']
             },
             operations: {
                 title: "Opérations",
@@ -167,17 +163,13 @@ export const cvContent = {
         },
         summary: {
             title: "Professional Summary",
-            text: "Electrical Engineer and PMP with 15+ years of experience in digital transformation, project management, and operational optimization. Expert in Business Intelligence, data analysis, and continuous improvement. Passionate about technological innovation for organizational efficiency."
+            text: "Expert in digital transformation and experienced engineer with over 15 years in management. I combine technical expertise in BI (SQL, Tableau) and continuous improvement (Lean, Six Sigma) to help SMEs structure their data."
         },
         skills: {
             title: "Key Skills",
-            technical: {
-                title: "Technical",
-                items: ['SQL', 'Tableau', 'Power BI', 'Python', 'Advanced Excel', 'VBA']
-            },
-            management: {
-                title: "Management",
-                items: ['Project Management', 'Leadership', 'Business Analysis', 'Budgeting', 'KPI']
+            digital: {
+                title: "Digital & Data",
+                items: ['Business Intelligence', 'Tableau', 'SQL', 'Advanced Excel', 'Office 365', 'Digital Diagnostic']
             },
             operations: {
                 title: "Operations",

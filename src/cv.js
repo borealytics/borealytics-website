@@ -139,29 +139,14 @@ function updateElement(id, text) {
 
 // Render skills section
 function renderSkills(skills) {
-  // Technical skills
-  const techContainer = document.getElementById('skills-technical');
-  if (techContainer) {
-    techContainer.innerHTML = `
-      <h4 class="font-semibold text-slate-900 mb-2">${skills.technical.title}</h4>
+  // Digital & Data skills
+  const digitalContainer = document.getElementById('skills-digital');
+  if (digitalContainer) {
+    digitalContainer.innerHTML = `
+      <h4 class="font-semibold text-slate-900 mb-2">${skills.digital.title}</h4>
       <div class="flex flex-wrap gap-2">
-        ${skills.technical.items.map(skill => `
-          <span class="px-3 py-1 bg-cyan-50 text-cyan-700 rounded-md text-xs font-medium border border-cyan-200">
-            ${skill}
-          </span>
-        `).join('')}
-      </div>
-    `;
-  }
-
-  // Management skills
-  const mgmtContainer = document.getElementById('skills-management');
-  if (mgmtContainer) {
-    mgmtContainer.innerHTML = `
-      <h4 class="font-semibold text-slate-900 mb-2">${skills.management.title}</h4>
-      <div class="flex flex-wrap gap-2">
-        ${skills.management.items.map(skill => `
-          <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-xs font-medium border border-slate-200">
+        ${skills.digital.items.map(skill => `
+          <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-medium border border-slate-200">
             ${skill}
           </span>
         `).join('')}
