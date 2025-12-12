@@ -1,27 +1,37 @@
 export const cvContent = {
     fr: {
         meta: {
-            title: "CV - Ludovic Guerlot",
+            title: "CV - Ludovic Asselin",
             description: "Curriculum Vitae professionnel"
         },
+        auth: {
+            title: "BORÉALYTICS",
+            subtitle: "Votre boussole numérique",
+            label: "Espace sécurisé - Accès client",
+            placeholder: "Entrez le mot de passe",
+            button: "Accéder au profil",
+            error: "Mot de passe incorrect. Essayez \"boreal\"",
+            hint: "Indice : le mot de passe est"
+        },
         header: {
-            name: "Ludovic Guerlot",
-            title: "Directeur | Analyste Senior | Ingénieur",
-            tagline: "Transformation numérique & optimisation opérationnelle"
+            badge: "CONSULTANT DISPONIBLE",
+            name: "Ludovic Asselin,",
+            title: "ing., PMP",
+            subtitle: "Président, Boréalytics",
+            tagline: "\"Votre boussole numérique pour l'optimisation des PME\""
         },
         contact: {
-            title: "Contact",
             email: "ludovic@borealytics.com",
-            phone: "(418) 555-0123",
-            location: "Québec, Canada",
-            linkedin: "linkedin.com/in/ludovicguerlot"
+            phone: "418-998-0901",
+            location: "Saint-Damien, QC",
+            linkedin: "linkedin.com/in/ludovicasselin"
         },
-        about: {
-            title: "À propos",
-            text: "Leader expérimenté en transformation numérique et optimisation des opérations. Expert en analyse de données, gestion de projet et amélioration continue. Passionné par l'innovation technologique au service de l'efficacité organisationnelle."
+        summary: {
+            title: "Résumé Professionnel",
+            text: "Ingénieur électrique et PMP avec 15+ ans d'expérience en transformation numérique, gestion de projet et optimisation opérationnelle. Expert en Business Intelligence, analyse de données et amélioration continue. Passionné par l'innovation technologique au service de l'efficacité organisationnelle."
         },
         skills: {
-            title: "Compétences",
+            title: "Compétences Clés",
             technical: {
                 title: "Techniques",
                 items: ['SQL', 'Tableau', 'Power BI', 'Python', 'Excel Avancé', 'VBA']
@@ -36,11 +46,7 @@ export const cvContent = {
             },
             certifications: {
                 title: "Certifications",
-                items: [
-                    { name: 'PMP (PMI)', verified: true },
-                    { name: 'ITIL', verified: true },
-                    { name: 'Lean Six Sigma', verified: true }
-                ]
+                items: ['PMP (PMI)', 'ITIL', 'Lean Six Sigma']
             }
         },
         education: {
@@ -129,40 +135,42 @@ export const cvContent = {
         },
         footer: {
             copyright: "© 2025 Boréalytics Inc. Tous droits réservés.",
-            tagline: "Développé avec passion"
-        },
-        auth: {
-            title: "Accès Sécurisé",
-            subtitle: "Veuillez entrer votre code d'accès pour consulter ce CV",
-            placeholder: "Code d'accès",
-            button: "Accéder",
-            error: "Code d'accès invalide. Veuillez réessayer.",
-            logout: "Se déconnecter"
+            tagline: "Développé avec React & Tailwind"
         }
     },
     en: {
         meta: {
-            title: "Resume - Ludovic Guerlot",
+            title: "Resume - Ludovic Asselin",
             description: "Professional Resume"
         },
+        auth: {
+            title: "BORÉALYTICS",
+            subtitle: "Your digital compass",
+            label: "Secure space - Client access",
+            placeholder: "Enter password",
+            button: "Access profile",
+            error: "Incorrect password. Try \"boreal\"",
+            hint: "Hint: the password is"
+        },
         header: {
-            name: "Ludovic Guerlot",
-            title: "Director | Senior Analyst | Engineer",
-            tagline: "Digital transformation & operational optimization"
+            badge: "CONSULTANT AVAILABLE",
+            name: "Ludovic Asselin,",
+            title: "P.Eng., PMP",
+            subtitle: "President, Boréalytics",
+            tagline: "\"Your digital compass for SME optimization\""
         },
         contact: {
-            title: "Contact",
             email: "ludovic@borealytics.com",
-            phone: "(418) 555-0123",
-            location: "Quebec, Canada",
-            linkedin: "linkedin.com/in/ludovicguerlot"
+            phone: "418-998-0901",
+            location: "Saint-Damien, QC",
+            linkedin: "linkedin.com/in/ludovicasselin"
         },
-        about: {
-            title: "About",
-            text: "Experienced leader in digital transformation and operations optimization. Expert in data analysis, project management, and continuous improvement. Passionate about technological innovation for organizational efficiency."
+        summary: {
+            title: "Professional Summary",
+            text: "Electrical Engineer and PMP with 15+ years of experience in digital transformation, project management, and operational optimization. Expert in Business Intelligence, data analysis, and continuous improvement. Passionate about technological innovation for organizational efficiency."
         },
         skills: {
-            title: "Skills",
+            title: "Key Skills",
             technical: {
                 title: "Technical",
                 items: ['SQL', 'Tableau', 'Power BI', 'Python', 'Advanced Excel', 'VBA']
@@ -177,11 +185,7 @@ export const cvContent = {
             },
             certifications: {
                 title: "Certifications",
-                items: [
-                    { name: 'PMP (PMI)', verified: true },
-                    { name: 'ITIL', verified: true },
-                    { name: 'Lean Six Sigma', verified: true }
-                ]
+                items: ['PMP (PMI)', 'ITIL', 'Lean Six Sigma']
             }
         },
         education: {
@@ -270,15 +274,7 @@ export const cvContent = {
         },
         footer: {
             copyright: "© 2025 Boréalytics Inc. All rights reserved.",
-            tagline: "Built with passion"
-        },
-        auth: {
-            title: "Secure Access",
-            subtitle: "Please enter your access code to view this resume",
-            placeholder: "Access code",
-            button: "Access",
-            error: "Invalid access code. Please try again.",
-            logout: "Logout"
+            tagline: "Built with React & Tailwind"
         }
     }
 };

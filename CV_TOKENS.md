@@ -1,54 +1,66 @@
-# CV Access Tokens
+# CV Access Management
 
-This file contains the valid access tokens for the password-protected CV page.
+This file contains information about accessing the password-protected CV page.
 
-## Current Valid Tokens
+## Password
 
-- `demo-2024` - Demo token for testing
-- `test-token` - Test token
-- `cv-preview` - Preview token
+The CV page is protected by a single password: **`boreal`**
 
-## How to Add/Remove Tokens
+## How It Works
+
+1. Navigate to: `http://localhost:5173/cv.html` (or `https://borealytics.com/cv.html` in production)
+2. Enter the password: `boreal`
+3. Click "Accéder au profil" to view the CV
+4. The authentication persists in the browser session (until tab is closed)
+
+## Changing the Password
+
+To change the password:
 
 1. Open `/src/cv.js`
-2. Find the `VALID_TOKENS` array (around line 9)
-3. Add or remove tokens from the array
-4. Save the file - changes are immediate (no rebuild needed with Vite dev server)
+2. Find line 7: `const CORRECT_PASSWORD = 'boreal';`
+3. Change `'boreal'` to your desired password
+4. Save the file
 
 Example:
 ```javascript
-const VALID_TOKENS = [
-  'demo-2024',
-  'client-abc123',  // New token for Client ABC
-  'lead-xyz789'     // New token for Lead XYZ
-];
+const CORRECT_PASSWORD = 'mynewpassword';
 ```
 
-## Token Best Practices
+## Future: Token-Based Access
 
-- Use unique, hard-to-guess tokens for each client/lead
-- Format suggestion: `{purpose}-{random}` (e.g., `client-a7b9c2d4`)
-- Generate random tokens with: `openssl rand -hex 6` or online generator
-- Keep this file updated when you add/remove tokens
-- **IMPORTANT**: Never commit real client tokens to Git
+When integrating with the ERP backend, you can implement token-based access:
 
-## Future: API Integration
+1. **Generate unique tokens** for each client/lead in the ERP
+2. **Store tokens** in PostgreSQL database
+3. **Validate via API** instead of client-side password check
+4. **Track access** - log when each client views the CV
 
-When integrating with the ERP backend:
-1. Tokens will be stored in PostgreSQL database
-2. Validation will happen via API call to `/api/cv-access/validate`
-3. You'll be able to manage tokens from the ERP interface
-4. Track who accessed the CV and when
-
-## Sharing the CV
-
-To share your CV with a client:
-1. Generate a unique token (or use an existing one)
-2. Add it to the `VALID_TOKENS` array in `/src/cv.js`
-3. Send the client this link: `https://borealytics.com/cv.html`
-4. Provide them with the token separately (email, message, etc.)
-5. They enter the token to access your CV
+This will provide:
+- Individual access control per client
+- Ability to revoke access
+- Analytics on CV views
+- Professional client management
 
 ## Security Note
 
-This is **client-side protection** - it prevents casual access but is not cryptographically secure. Someone with technical knowledge could bypass it. For production use with sensitive data, consider implementing server-side authentication via the ERP backend.
+The current implementation uses **client-side password validation**. This is suitable for:
+- Preventing casual access
+- Sharing with professional contacts
+- Quick deployment without backend
+
+However, it is **not cryptographically secure**. Someone with technical knowledge could bypass it by viewing the source code.
+
+For production use with sensitive data, consider implementing server-side authentication via the ERP backend.
+
+## Bilingual Support
+
+The CV page supports French and English:
+- Default language: French
+- Language preference is saved in localStorage
+- All content translates automatically
+
+To change the default language:
+1. Open `/src/cv.js`
+2. Find line 5: `const DEFAULT_LANG = 'fr';`
+3. Change to `'en'` for English default
