@@ -90,7 +90,6 @@ function updateContent() {
   if (tokenInput) tokenInput.placeholder = content.auth.placeholder;
 
   // Update header
-  updateElement('header-badge', content.header.badge);
   updateElement('header-name', content.header.name);
   updateElement('header-title', content.header.title);
   updateElement('header-subtitle', content.header.subtitle);
@@ -110,9 +109,23 @@ function updateContent() {
   const linkedinLink = document.getElementById('contact-linkedin-link');
   if (linkedinLink) linkedinLink.href = `https://${content.contact.linkedin}`;
 
-  // Update summary
-  updateElement('summary-title', content.summary.title);
-  updateElement('summary-text', content.summary.text);
+  // Update summary (Profil)
+  updateElement('summary-title', 'Profil');
+  const summaryText = document.getElementById('summary-text');
+  if (summaryText) {
+    // Format text with strong tags for BI and Lean/Six Sigma to match cv.jsx
+    const formattedText = content.summary.text
+      .replace(/BI \(SQL, Tableau\)/g, '<strong>BI (SQL, Tableau)</strong>')
+      .replace(/\(Lean, Six Sigma\)/g, '<strong>(Lean, Six Sigma)</strong>');
+    summaryText.innerHTML = formattedText;
+  }
+  
+  // Update download button
+  const downloadBtn = document.getElementById('download-cv-btn');
+  const downloadText = document.getElementById('download-cv-text');
+  if (downloadText) {
+    downloadText.textContent = lang === 'en' ? 'Download CV (PDF)' : 'Télécharger CV (PDF)';
+  }
 
   // Update skills
   updateElement('skills-title', content.skills.title);
@@ -122,8 +135,7 @@ function updateContent() {
   updateElement('education-title', content.education.title);
   renderEducation(content.education.items);
 
-  // Update experience
-  updateElement('experience-title', content.experience.title);
+  // Update experience (title is now in the card, so we don't update it separately)
   renderExperience(content.experience.items);
 
   // Update footer
@@ -143,10 +155,11 @@ function renderSkills(skills) {
   const digitalContainer = document.getElementById('skills-digital');
   if (digitalContainer) {
     digitalContainer.innerHTML = `
-      <h4 class="font-semibold text-slate-900 mb-2">${skills.digital.title}</h4>
+      <h4 class="font-semibold mb-2" style="color: var(--color-text);">${skills.digital.title}</h4>
       <div class="flex flex-wrap gap-2">
         ${skills.digital.items.map(skill => `
-          <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-medium border border-slate-200">
+          <span class="px-3 py-1 rounded-md text-xs font-medium border"
+            style="background-color: var(--color-background); color: var(--color-text-light); border-color: rgba(0, 0, 0, 0.1);">
             ${skill}
           </span>
         `).join('')}
@@ -158,10 +171,11 @@ function renderSkills(skills) {
   const opsContainer = document.getElementById('skills-operations');
   if (opsContainer) {
     opsContainer.innerHTML = `
-      <h4 class="font-semibold text-slate-900 mb-2">${skills.operations.title}</h4>
+      <h4 class="font-semibold mb-2" style="color: var(--color-text);">${skills.operations.title}</h4>
       <div class="flex flex-wrap gap-2">
         ${skills.operations.items.map(skill => `
-          <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-medium border border-slate-200">
+          <span class="px-3 py-1 rounded-md text-xs font-medium border"
+            style="background-color: var(--color-background); color: var(--color-text-light); border-color: rgba(0, 0, 0, 0.1);">
             ${skill}
           </span>
         `).join('')}
@@ -173,11 +187,11 @@ function renderSkills(skills) {
   const certContainer = document.getElementById('skills-certifications');
   if (certContainer) {
     certContainer.innerHTML = `
-      <h4 class="font-semibold text-slate-900 mb-2">${skills.certifications.title}</h4>
+      <h4 class="font-semibold mb-2" style="color: var(--color-text);">${skills.certifications.title}</h4>
       <ul class="space-y-2">
         ${skills.certifications.items.map(cert => `
-          <li class="flex items-center gap-2 text-sm text-slate-600">
-            <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <li class="flex items-center gap-2 text-sm" style="color: var(--color-text-light);">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-accent);">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
             ${cert}
@@ -194,8 +208,8 @@ function renderEducation(items) {
   if (container) {
     container.innerHTML = items.map(item => `
       <div>
-        <div class="text-sm font-bold text-slate-800">${item.degree}</div>
-        <div class="text-xs text-slate-500">${item.school}${item.period ? ` (${item.period})` : ''}</div>
+        <div class="text-sm font-bold" style="color: var(--color-text);">${item.degree}</div>
+        <div class="text-xs" style="color: var(--color-text-light);">${item.school}${item.period ? ` (${item.period})` : ''}</div>
       </div>
     `).join('');
   }
@@ -205,35 +219,51 @@ function renderEducation(items) {
 function renderExperience(items) {
   const container = document.getElementById('experience-items');
   if (container) {
+    // Update the title in the card
+    const titleElement = document.querySelector('#experience-title span');
+    if (titleElement) {
+      const lang = getLang();
+      const content = cvContent[lang];
+      titleElement.textContent = content.experience.title;
+    }
+    
     container.innerHTML = items.map(item => {
-      const borderColor = item.featured ? 'border-cyan-500' : item.compact ? 'border-slate-200' : 'border-slate-300';
-      const opacity = item.compact ? 'opacity-90' : '';
-      const iconColor = item.featured ? 'text-cyan-500' : 'text-slate-400';
+      const borderColorStyle = item.featured 
+        ? 'border-left: 4px solid var(--color-secondary);' 
+        : item.compact 
+        ? 'border-left: 4px solid rgba(0, 0, 0, 0.1);' 
+        : 'border-left: 4px solid rgba(0, 0, 0, 0.15);';
+      const opacity = item.compact ? 'opacity: 0.9;' : '';
+      const iconColorStyle = item.featured 
+        ? 'color: var(--color-secondary);' 
+        : 'color: var(--color-text-light);';
 
       return `
-        <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow border-l-4 ${borderColor} ${opacity}">
+        <div class="rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow mb-6" 
+          style="background-color: var(--color-surface); ${borderColorStyle} ${opacity}">
           <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-4">
             <div>
-              <h4 class="text-xl font-bold text-slate-900">${item.position}</h4>
-              <div class="text-cyan-700 font-medium">${item.company}</div>
+              <h4 class="text-lg font-bold" style="color: var(--color-text);">${item.position}</h4>
+              <div class="font-medium" style="color: var(--color-secondary);">${item.company}</div>
             </div>
-            <div class="text-sm text-slate-500 font-medium bg-slate-100 px-3 py-1 rounded-full mt-2 sm:mt-0 inline-block">
+            <div class="text-sm font-medium px-3 py-1 rounded-full mt-2 sm:mt-0 inline-block"
+              style="color: var(--color-text-light); background-color: var(--color-background);">
               ${item.period}
             </div>
           </div>
 
-          ${item.description ? `<p class="text-slate-600 text-sm mb-4 italic">${item.description}</p>` : ''}
+          ${item.description ? `<p class="text-sm mb-4 italic" style="color: var(--color-text-light);">${item.description}</p>` : ''}
 
           <ul class="space-y-${item.compact ? '2' : '3'}">
             ${item.highlights.map(highlight => `
               <li class="flex items-start gap-${item.compact ? '2' : '3'}">
                 ${item.compact
-          ? '<span class="w-1.5 h-1.5 bg-slate-400 rounded-full mt-1.5"></span>'
-          : `<svg class="w-5 h-5 ${iconColor} shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          ? `<span class="w-1.5 h-1.5 rounded-full mt-1.5" style="background-color: var(--color-text-light);"></span>`
+          : `<svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="${iconColorStyle}">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>`
         }
-                <span class="text-slate-${item.compact ? '600' : '700'} text-sm">
+                <span class="text-sm" style="color: ${item.compact ? 'var(--color-text-light)' : 'var(--color-text)'};">
                   ${highlight.title ? `<strong>${highlight.title}:</strong> ` : ''}${highlight.text}
                 </span>
               </li>
@@ -243,6 +273,73 @@ function renderExperience(items) {
       `;
     }).join('');
   }
+}
+
+// Generate PDF from CV content
+function generatePDF() {
+  const cvContent = document.getElementById('cv-content');
+  if (!cvContent) {
+    console.error('CV content not found');
+    return;
+  }
+
+  // Get current language for filename
+  const lang = getLang();
+  const filename = lang === 'en' 
+    ? 'CV_Ludovic_Asselin.pdf' 
+    : 'CV_Ludovic_Asselin.pdf';
+
+  // Configure PDF options
+  const options = {
+    margin: [10, 10, 10, 10],
+    filename: filename,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { 
+      scale: 2,
+      useCORS: true,
+      logging: false,
+      letterRendering: true
+    },
+    jsPDF: { 
+      unit: 'mm', 
+      format: 'a4', 
+      orientation: 'portrait',
+      compress: true
+    },
+    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+  };
+
+  // Show loading state
+  const downloadBtn = document.getElementById('download-cv-btn');
+  const originalText = downloadBtn?.querySelector('#download-cv-text')?.textContent;
+  if (downloadBtn && originalText) {
+    downloadBtn.disabled = true;
+    downloadBtn.querySelector('#download-cv-text').textContent = lang === 'en' ? 'Generating...' : 'Génération...';
+  }
+
+  // Generate PDF
+  html2pdf()
+    .set(options)
+    .from(cvContent)
+    .save()
+    .then(() => {
+      // Restore button state
+      if (downloadBtn && originalText) {
+        downloadBtn.disabled = false;
+        downloadBtn.querySelector('#download-cv-text').textContent = originalText;
+      }
+    })
+    .catch((error) => {
+      console.error('Error generating PDF:', error);
+      // Restore button state on error
+      if (downloadBtn && originalText) {
+        downloadBtn.disabled = false;
+        downloadBtn.querySelector('#download-cv-text').textContent = originalText;
+      }
+      alert(lang === 'en' 
+        ? 'Error generating PDF. Please try again.' 
+        : 'Erreur lors de la génération du PDF. Veuillez réessayer.');
+    });
 }
 
 // Initialize on page load
@@ -258,6 +355,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const authForm = document.getElementById('auth-form');
   if (authForm) {
     authForm.addEventListener('submit', handleAuth);
+  }
+
+  // Setup download PDF button
+  const downloadBtn = document.getElementById('download-cv-btn');
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      generatePDF();
+    });
   }
 
   // Initial content update
