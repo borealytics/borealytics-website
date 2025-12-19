@@ -61,6 +61,46 @@ export const content = {
         validation: "Please correct the errors above",
         generic: "An error occurred. Please try again later."
       }
+    },
+    services: {
+      title: "Our Expertise",
+      list: [
+        {
+          title: "Data Strategy",
+          desc: "We help you structure and govern your data to turn it into a sustainable asset.",
+          icon: "strategy"
+        },
+        {
+          title: "Automation & AI",
+          desc: "Deploy intelligent solutions to automate repetitive tasks and optimize your processes.",
+          icon: "ai"
+        },
+        {
+          title: "Business Intelligence",
+          desc: "Visual dashboards and precise indicators for agile, informed decision-making.",
+          icon: "bi"
+        },
+        {
+          title: "Training & Coaching",
+          desc: "Empower your teams with personalized training on modern data tools.",
+          icon: "training"
+        }
+      ]
+    },
+    testimonials: {
+      title: "Trusted By",
+      list: [
+        { name: "Marc D.", role: "CEO, TechFlow", text: "Borealytics transformed how we see our data. A game changer for our growth." },
+        { name: "Sarah L.", role: "Director, GreenCity", text: "Professional, pragmatic, and incredibly efficient. The ROI was immediate." }
+      ]
+    },
+    footer: {
+      about: "About Us",
+      aboutText: "Helping organizations turn data into decisions.",
+      quickLinks: "Quick Links",
+      contact: "Contact",
+      address: "Montreal, QC",
+      rights: "All rights reserved."
     }
   },
   fr: {
@@ -125,6 +165,46 @@ export const content = {
         validation: "Veuillez corriger les erreurs ci-dessus",
         generic: "Une erreur s'est produite. Veuillez réessayer plus tard."
       }
+    },
+    services: {
+      title: "Nos Services",
+      list: [
+        {
+          title: "Stratégie de Données",
+          desc: "Nous vous aidons à structurer et gouverner vos données pour en faire un actif durable.",
+          icon: "strategy"
+        },
+        {
+          title: "Automatisation & IA",
+          desc: "Déployez des solutions intelligentes pour automatiser les tâches répétitives et optimiser vos processus.",
+          icon: "ai"
+        },
+        {
+          title: "Intelligence d'Affaires",
+          desc: "Tableaux de bord visuels et indicateurs précis pour une prise de décision agile et éclairée.",
+          icon: "bi"
+        },
+        {
+          title: "Formation & Coaching",
+          desc: "Rendez vos équipes autonomes grâce à des formations personnalisées sur les outils de données modernes.",
+          icon: "training"
+        }
+      ]
+    },
+    testimonials: {
+      title: "Ils nous font confiance",
+      list: [
+        { name: "Marc D.", role: "PDG, TechFlow", text: "Borealytics a transformé notre vision des données. Un véritable levier de croissance." },
+        { name: "Sarah L.", role: "Directrice, GreenCity", text: "Professionnels, pragmatiques et incroyablement efficaces. Le ROI a été immédiat." }
+      ]
+    },
+    footer: {
+      about: "À propos",
+      aboutText: "Nous aidons les organisations à transformer leurs données en décisions.",
+      quickLinks: "Liens rapides",
+      contact: "Contact",
+      address: "Montréal, QC",
+      rights: "Tous droits réservés."
     }
   }
 };
