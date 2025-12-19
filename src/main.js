@@ -34,6 +34,20 @@ function updateContent() {
     }
   });
 
+  // Handle placeholder translations separately
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+    const key = element.getAttribute('data-i18n-placeholder');
+    const keys = key.split('.');
+    let value = currentContent;
+    keys.forEach(k => {
+      value = value[k];
+    });
+
+    if (value) {
+      element.placeholder = value;
+    }
+  });
+
   // Handle Mission Points
   const missionList = document.getElementById('mission-points');
   if (missionList && currentContent.mission.points) {
@@ -88,6 +102,22 @@ document.addEventListener('DOMContentLoaded', () => {
       const currentLang = getLang();
       const newLang = currentLang === 'en' ? 'fr' : 'en';
       setLang(newLang);
+
+      // Update contact form language if it exists
+      if (window.contactFormHandler) {
+        window.contactFormHandler.updateLanguage(newLang);
+      }
+    });
+  }
+
+  // Initialize contact form if on contact page
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    import('./contact-form.js').then(module => {
+      window.contactFormHandler = new module.ContactFormHandler(contactForm);
+    }).catch(error => {
+      console.error('Failed to load contact form:', error);
     });
   }
 });
+

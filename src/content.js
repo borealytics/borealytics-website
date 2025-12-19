@@ -37,8 +37,30 @@ export const content = {
       title: "Contact Us",
       name: "Name",
       email: "Email",
+      phone: "Phone",
+      phonePlaceholder: "(optional)",
+      company: "Company",
+      companyPlaceholder: "(optional)",
+      subject: "Subject",
+      subjectPlaceholder: "Select a subject",
+      subjectOptions: {
+        consultation: "Consultation",
+        partnership: "Partnership",
+        question: "Question",
+        other: "Other"
+      },
       message: "Message",
-      submit: "Send"
+      submit: "Send",
+      sending: "Sending...",
+      success: "Thank you! Your message has been sent successfully. We will get back to you soon.",
+      errors: {
+        required: "This field is required",
+        invalidEmail: "Please enter a valid email address",
+        invalidPhone: "Please enter a valid phone number",
+        messageTooShort: "Message must be at least 10 characters",
+        validation: "Please correct the errors above",
+        generic: "An error occurred. Please try again later."
+      }
     }
   },
   fr: {
@@ -79,8 +101,30 @@ export const content = {
       title: "Contactez-nous",
       name: "Nom",
       email: "Courriel",
+      phone: "Téléphone",
+      phonePlaceholder: "(optionnel)",
+      company: "Entreprise",
+      companyPlaceholder: "(optionnel)",
+      subject: "Sujet",
+      subjectPlaceholder: "Sélectionnez un sujet",
+      subjectOptions: {
+        consultation: "Consultation",
+        partnership: "Partenariat",
+        question: "Question",
+        other: "Autre"
+      },
       message: "Message",
-      submit: "Envoyer"
+      submit: "Envoyer",
+      sending: "Envoi en cours...",
+      success: "Merci ! Votre message a été envoyé avec succès. Nous vous répondrons bientôt.",
+      errors: {
+        required: "Ce champ est requis",
+        invalidEmail: "Veuillez entrer une adresse courriel valide",
+        invalidPhone: "Veuillez entrer un numéro de téléphone valide",
+        messageTooShort: "Le message doit contenir au moins 10 caractères",
+        validation: "Veuillez corriger les erreurs ci-dessus",
+        generic: "Une erreur s'est produite. Veuillez réessayer plus tard."
+      }
     }
   }
 };
