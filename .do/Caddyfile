@@ -1,0 +1,129 @@
+# Caddyfile - Configuration Caddy pour les 3 applications Borealytics
+# Fichier: /etc/caddy/Caddyfile
+
+# Site web Borealytics (fichiers statiques)
+borealytics.com, www.borealytics.com {
+    # Servir les fichiers statiques depuis le dossier dist
+    root * /var/www/borealytics-website/dist
+    
+    # Compression gzip automatique
+    encode gzip
+    
+    # Serveur de fichiers statiques
+    file_server
+    
+    # SPA routing - rediriger toutes les routes vers index.html
+    # Nécessaire pour les applications React/Vue/Angular
+    try_files {path} /index.html
+    
+    # Cache des assets statiques
+    @static {
+        path *.js *.css *.png *.jpg *.jpeg *.gif *.ico *.svg *.woff *.woff2 *.ttf *.eot
+    }
+    header @static {
+        Cache-Control "public, max-age=31536000, immutable"
+    }
+    
+    # Désactiver le cache pour index.html
+    @html {
+        path *.html
+    }
+    header @html {
+        Cache-Control "no-cache, no-store, must-revalidate"
+    }
+    
+    # Security headers
+    header {
+        X-Frame-Options "SAMEORIGIN"
+        X-Content-Type-Options "nosniff"
+        X-XSS-Protection "1; mode=block"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        # Uncomment for stricter security (may break some features)
+        # Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
+    }
+    
+    # Logs (optionnel)
+    log {
+        output file /var/log/caddy/borealytics.log
+        format json
+    }
+}
+
+# ERP - Reverse proxy vers Docker
+erp.borealytics.com {
+    # Proxy vers le conteneur Docker ERP (port 3001)
+    reverse_proxy localhost:3001 {
+        # Health check (optionnel)
+        health_uri /health
+        health_interval 30s
+        health_timeout 5s
+        
+        # Headers pour préserver les informations du client
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+    
+    # Limite de taille des uploads (ajustez selon vos besoins)
+    request_body {
+        max_size 50MB
+    }
+    
+    # Security headers
+    header {
+        X-Frame-Options "SAMEORIGIN"
+        X-Content-Type-Options "nosniff"
+        X-XSS-Protection "1; mode=block"
+    }
+    
+    # Logs
+    log {
+        output file /var/log/caddy/erp.log
+        format json
+    }
+}
+
+# Application Mermaid - Reverse proxy vers Docker
+mermaid.borealytics.com {
+    # Proxy vers le conteneur Docker Mermaid (port 3002)
+    reverse_proxy localhost:3002 {
+        # Health check (optionnel)
+        health_uri /health
+        health_interval 30s
+        health_timeout 5s
+        
+        # Headers pour préserver les informations du client
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+    
+    # Limite de taille des uploads
+    request_body {
+        max_size 10MB
+    }
+    
+    # Security headers
+    header {
+        X-Frame-Options "SAMEORIGIN"
+        X-Content-Type-Options "nosniff"
+        X-XSS-Protection "1; mode=block"
+    }
+    
+    # Logs
+    log {
+        output file /var/log/caddy/mermaid.log
+        format json
+    }
+}
+
+# Configuration globale (optionnel)
+{
+    # Email pour les certificats SSL Let's Encrypt
+    email ludovic@borealytics.com
+    
+    # Activer le serveur admin (optionnel, pour monitoring)
+    # admin localhost:2019
+}

@@ -1,0 +1,20 @@
+name: borealytics-website
+region: tor1
+
+static_sites:
+  - name: borealytics
+    github:
+      repo: borealytics/borealytics-website
+      branch: main
+      deploy_on_push: true
+    
+    build_command: npm run build
+    output_dir: dist
+    
+    routes:
+      - path: /
+    
+    # Variables d'environnement (si nécessaire)
+    # envs:
+    #   - key: NODE_ENV
+    #     value: production
