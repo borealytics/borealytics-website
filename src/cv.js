@@ -239,7 +239,7 @@ function renderExperience(items) {
         : 'color: var(--color-text-light);';
 
       return `
-        <div class="rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow mb-6" 
+        <div class="rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow mb-8" 
           style="background-color: var(--color-surface); ${borderColorStyle} ${opacity}">
           <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-4">
             <div>
