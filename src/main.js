@@ -98,6 +98,20 @@ function updateContent() {
       .join('');
   }
 
+  // Handle Testimonials List
+  const testimonialsList = document.getElementById('testimonials-list');
+  if (testimonialsList && currentContent.testimonials) {
+    testimonialsList.innerHTML = currentContent.testimonials.list
+      .map(t => `
+        <div class="testimonial-card">
+          <p class="testimonial-text">"${t.text}"</p>
+          <div class="testimonial-author">${t.name}</div>
+          <div class="testimonial-role">${t.role}</div>
+        </div>
+      `)
+      .join('');
+  }
+
   // Update CTA Button Text
   const ctaBtn = document.querySelector('.hero .btn-primary');
   if (ctaBtn) {

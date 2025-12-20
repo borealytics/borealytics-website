@@ -28,7 +28,7 @@ export const cvContent = {
         },
         summary: {
             title: "Résumé Professionnel",
-            text: "Expert en transformation numérique et ingénieur d'expérience cumulant plus de 15 ans en gestion. Je combine une expertise technique en BI (SQL, Tableau) et en amélioration continue (Lean, Six Sigma) pour aider les PME à structurer leurs données."
+            text: "Ingénieur de formation, gestionnaire de projet et expert en transformation numérique cumulant plus de 15 ans en gestion. Je combine une expertise technique en BI (SQL, Tableau) et en amélioration continue (Lean, Six Sigma) pour aider les PME à structurer leurs données."
         },
         skills: {
             title: "Compétences Clés",
@@ -67,19 +67,15 @@ export const cvContent = {
                     position: "Directeur, Gestion Matières Résiduelles",
                     company: "MRC de Bellechasse",
                     period: "Août 2023 - Présent",
-                    description: "Transformation d'un service opérationnel (26 employés, flotte de 15 camions).",
+                    description: "Transformation numérique d’un service opérationnel (26 employés, 15 camions).",
                     highlights: [
                         {
-                            title: "Virage Numérique",
-                            text: "Implantation de KPI pour suivre la productivité et les coûts à la tonne. Prise de décision basée sur les données."
+                            title: "Performance opérationnelle",
+                            text: "Automatisation des statistiques (KPI) et suivi des collectes en temps réel, générant une réduction de 40 % des oublis sur deux ans."
                         },
                         {
-                            title: "Optimisation Lean",
-                            text: "Réduction des temps d'arrêt de machinerie et optimisation des routes de collecte."
-                        },
-                        {
-                            title: "Gestion du Changement",
-                            text: "Accompagnement de l'équipe terrain dans l'adoption technologique."
+                            title: "Efficacité organisationnelle",
+                            text: "Optimisation de l'intégration des nouveaux chauffeurs grâce aux outils de visualisation, réduisant de 50 % le délai pour les rendre opérationnels."
                         }
                     ],
                     featured: true
@@ -88,7 +84,7 @@ export const cvContent = {
                     position: "Analyste Senior Gestion de Projet & BI",
                     company: "TELUS",
                     period: "Nov 2013 - Août 2023",
-                    description: "",
+                    description: "Gestion de projet et Business Intelligence",
                     highlights: [
                         {
                             title: "Business Intelligence",

@@ -90,6 +90,7 @@ function updateContent() {
   if (tokenInput) tokenInput.placeholder = content.auth.placeholder;
 
   // Update header
+  updateElement('header-badge', content.header.badge);
   updateElement('header-name', content.header.name);
   updateElement('header-title', content.header.title);
   updateElement('header-subtitle', content.header.subtitle);
@@ -119,7 +120,7 @@ function updateContent() {
       .replace(/\(Lean, Six Sigma\)/g, '<strong>(Lean, Six Sigma)</strong>');
     summaryText.innerHTML = formattedText;
   }
-  
+
   // Update download button
   const downloadBtn = document.getElementById('download-cv-btn');
   const downloadText = document.getElementById('download-cv-text');
@@ -155,11 +156,10 @@ function renderSkills(skills) {
   const digitalContainer = document.getElementById('skills-digital');
   if (digitalContainer) {
     digitalContainer.innerHTML = `
-      <h4 class="font-semibold mb-2" style="color: var(--color-text);">${skills.digital.title}</h4>
+      <h4 class="font-semibold mb-2 text-boreal-text">${skills.digital.title}</h4>
       <div class="flex flex-wrap gap-2">
         ${skills.digital.items.map(skill => `
-          <span class="px-3 py-1 rounded-md text-xs font-medium border"
-            style="background-color: var(--color-background); color: var(--color-text-light); border-color: rgba(0, 0, 0, 0.1);">
+          <span class="px-3 py-1 rounded-md text-xs font-medium border bg-boreal-bg text-boreal-text-light border-black/10">
             ${skill}
           </span>
         `).join('')}
@@ -171,11 +171,10 @@ function renderSkills(skills) {
   const opsContainer = document.getElementById('skills-operations');
   if (opsContainer) {
     opsContainer.innerHTML = `
-      <h4 class="font-semibold mb-2" style="color: var(--color-text);">${skills.operations.title}</h4>
+      <h4 class="font-semibold mb-2 text-boreal-text">${skills.operations.title}</h4>
       <div class="flex flex-wrap gap-2">
         ${skills.operations.items.map(skill => `
-          <span class="px-3 py-1 rounded-md text-xs font-medium border"
-            style="background-color: var(--color-background); color: var(--color-text-light); border-color: rgba(0, 0, 0, 0.1);">
+          <span class="px-3 py-1 rounded-md text-xs font-medium border bg-boreal-bg text-boreal-text-light border-black/10">
             ${skill}
           </span>
         `).join('')}
@@ -187,11 +186,11 @@ function renderSkills(skills) {
   const certContainer = document.getElementById('skills-certifications');
   if (certContainer) {
     certContainer.innerHTML = `
-      <h4 class="font-semibold mb-2" style="color: var(--color-text);">${skills.certifications.title}</h4>
+      <h4 class="font-semibold mb-2 text-boreal-text">${skills.certifications.title}</h4>
       <ul class="space-y-2">
         ${skills.certifications.items.map(cert => `
-          <li class="flex items-center gap-2 text-sm" style="color: var(--color-text-light);">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-accent);">
+          <li class="flex items-center gap-2 text-sm text-boreal-text-light">
+            <svg class="w-4 h-4 text-boreal-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
             ${cert}
@@ -208,8 +207,8 @@ function renderEducation(items) {
   if (container) {
     container.innerHTML = items.map(item => `
       <div>
-        <div class="text-sm font-bold" style="color: var(--color-text);">${item.degree}</div>
-        <div class="text-xs" style="color: var(--color-text-light);">${item.school}${item.period ? ` (${item.period})` : ''}</div>
+        <div class="text-sm font-bold text-boreal-text">${item.degree}</div>
+        <div class="text-xs text-boreal-text-light">${item.school}${item.period ? ` (${item.period})` : ''}</div>
       </div>
     `).join('');
   }
@@ -226,44 +225,47 @@ function renderExperience(items) {
       const content = cvContent[lang];
       titleElement.textContent = content.experience.title;
     }
-    
+
     container.innerHTML = items.map(item => {
-      const borderColorStyle = item.featured 
-        ? 'border-left: 4px solid var(--color-secondary);' 
-        : item.compact 
-        ? 'border-left: 4px solid rgba(0, 0, 0, 0.1);' 
-        : 'border-left: 4px solid rgba(0, 0, 0, 0.15);';
-      const opacity = item.compact ? 'opacity: 0.9;' : '';
-      const iconColorStyle = item.featured 
-        ? 'color: var(--color-secondary);' 
-        : 'color: var(--color-text-light);';
+      const borderClass = item.featured
+        ? 'border-l-4 border-l-boreal-secondary'
+        : item.compact
+          ? 'border-l-4 border-l-black/10'
+          : 'border-l-4 border-l-black/15';
+
+      const opacityClass = item.compact ? 'opacity-90' : '';
+
+      const iconClass = item.featured
+        ? 'text-boreal-secondary'
+        : 'text-boreal-text-light';
+
+      const listGapClass = item.compact ? 'gap-2' : 'gap-3';
+      const listSpaceClass = item.compact ? 'space-y-2' : 'space-y-3';
 
       return `
-        <div class="rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow mb-8" 
-          style="background-color: var(--color-surface); ${borderColorStyle} ${opacity}">
+        <div class="rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow mb-8 bg-boreal-surface ${borderClass} ${opacityClass}">
           <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-4">
             <div>
-              <h4 class="text-lg font-bold" style="color: var(--color-text);">${item.position}</h4>
-              <div class="font-medium" style="color: var(--color-secondary);">${item.company}</div>
+              <h4 class="text-lg font-bold text-boreal-text">${item.position}</h4>
+              <div class="font-medium text-boreal-secondary">${item.company}</div>
             </div>
-            <div class="text-sm font-medium px-3 py-1 rounded-full mt-2 sm:mt-0 inline-block"
-              style="color: var(--color-text-light); background-color: var(--color-background);">
+            <div class="text-sm font-medium px-3 py-1 rounded-full mt-2 sm:mt-0 inline-block bg-boreal-bg text-boreal-text-light">
               ${item.period}
             </div>
           </div>
 
-          ${item.description ? `<p class="text-sm mb-4 italic" style="color: var(--color-text-light);">${item.description}</p>` : ''}
+          ${item.description ? `<p class="text-sm mb-4 italic text-boreal-text-light">${item.description}</p>` : ''}
 
-          <ul class="space-y-${item.compact ? '2' : '3'}">
+          <ul class="${listSpaceClass}">
             ${item.highlights.map(highlight => `
-              <li class="flex items-start gap-${item.compact ? '2' : '3'}">
+              <li class="flex items-start ${listGapClass}">
                 ${item.compact
-          ? `<span class="w-1.5 h-1.5 rounded-full mt-1.5" style="background-color: var(--color-text-light);"></span>`
-          : `<svg class="w-5 h-5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="${iconColorStyle}">
+          ? `<span class="w-1.5 h-1.5 rounded-full mt-1.5 bg-boreal-text-light"></span>`
+          : `<svg class="w-5 h-5 shrink-0 mt-0.5 ${iconClass}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>`
         }
-                <span class="text-sm" style="color: ${item.compact ? 'var(--color-text-light)' : 'var(--color-text)'};">
+                <span class="text-sm ${item.compact ? 'text-boreal-text-light' : 'text-boreal-text'}">
                   ${highlight.title ? `<strong>${highlight.title}:</strong> ` : ''}${highlight.text}
                 </span>
               </li>
@@ -285,8 +287,8 @@ function generatePDF() {
 
   // Get current language for filename
   const lang = getLang();
-  const filename = lang === 'en' 
-    ? 'CV_Ludovic_Asselin.pdf' 
+  const filename = lang === 'en'
+    ? 'CV_Ludovic_Asselin.pdf'
     : 'CV_Ludovic_Asselin.pdf';
 
   // Configure PDF options
@@ -294,15 +296,15 @@ function generatePDF() {
     margin: [10, 10, 10, 10],
     filename: filename,
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { 
+    html2canvas: {
       scale: 2,
       useCORS: true,
       logging: false,
       letterRendering: true
     },
-    jsPDF: { 
-      unit: 'mm', 
-      format: 'a4', 
+    jsPDF: {
+      unit: 'mm',
+      format: 'a4',
       orientation: 'portrait',
       compress: true
     },
@@ -336,8 +338,8 @@ function generatePDF() {
         downloadBtn.disabled = false;
         downloadBtn.querySelector('#download-cv-text').textContent = originalText;
       }
-      alert(lang === 'en' 
-        ? 'Error generating PDF. Please try again.' 
+      alert(lang === 'en'
+        ? 'Error generating PDF. Please try again.'
         : 'Erreur lors de la génération du PDF. Veuillez réessayer.');
     });
 }

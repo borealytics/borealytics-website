@@ -6,7 +6,8 @@ export const content = {
     },
     hero: {
       title: "Borealytics: Your Partner in Data Transformation",
-      subtitle: "Harness the power of your data."
+      subtitle: "Harness the power of your data.",
+      cta: "Get Started"
     },
     mission: {
       title: "Our Mission",
@@ -110,37 +111,53 @@ export const content = {
     },
     hero: {
       title: "Borealytics\u00A0: Votre partenaire en transformation de données",
-      subtitle: "Exploitez la puissance de vos données."
+      subtitle: "Exploitez la puissance de vos données.",
+      cta: "Discuter de mon projet"
     },
     mission: {
-      title: "Notre mission",
+      title: "Notre Mission",
       text: "Chez Borealytics, nous aidons les PME et les organisations municipales à maîtriser leurs données. Notre mission est de simplifier l'accès et l'utilisation de vos informations pour transformer vos défis en opportunités stratégiques.",
       points: [
-        "Structurer vos données&nbsp;: Pour une meilleure organisation et accessibilité.",
-        "Fournir des outils d'automatisation&nbsp;: Pour un gain d'efficacité.",
-        "Proposer des solutions d'intelligence d'affaires&nbsp;: Pour des décisions agiles et éclairées.",
-        "Offrir un coaching personnalisé&nbsp;: Pour renforcer vos compétences internes.",
-        "Proposer des solutions d'IA&nbsp;: Pour optimiser l'analyse et la prise de décision."
+        "Structurer vos données\u00A0: Pour une meilleure organisation et accessibilité.",
+        "Fournir des outils d'automatisation\u00A0: Pour un gain d'efficacité.",
+        "Proposer des solutions d'intelligence d'affaires\u00A0: Pour des décisions agiles et éclairées.",
+        "Offrir un accompagnement personnalisé\u00A0: Pour renforcer vos compétences internes.",
+        "Proposer des solutions en IA\u00A0: Pour optimiser l'analyse et la prise de décision."
       ]
     },
     vision: {
-      title: "Notre vision",
+      title: "Notre Vision",
       text: "Nous aspirons à un avenir où la prise de décision basée sur les données est intuitive, intégrée et un moteur de prospérité locale. Nous sommes votre partenaire de confiance, bâtissant des relations basées sur la confiance et l'expertise."
     },
     values: {
-      title: "Nos valeurs",
+      title: "Nos Valeurs",
       list: [
-        { title: "Pédagogie", desc: "Transfert de connaissances pour bâtir une autonomie durable." },
-        { title: "Pragmatisme", desc: "Solutions concrètes adaptées à votre réalité." },
-        { title: "Partenariat", desc: "Nous réussissons avec nos clients, pas seulement pour eux." },
-        { title: "Intégrité", desc: "Confidentialité stricte et recommandations honnêtes." },
-        { title: "Adaptabilité", desc: "Méthodes adaptées à votre taille, budget et maturité." }
+        {
+          title: "Pédagogie",
+          desc: "Nous vulgarisons le complexe. Pas de jargon, juste de la clarté pour vous rendre autonome."
+        },
+        {
+          title: "Pragmatisme",
+          desc: "Des solutions concrètes et adaptées à votre réalité opérationnelle, orientées vers un ROI rapide."
+        },
+        {
+          title: "Partenariat",
+          desc: "Plus que des consultants, nous sommes vos alliés dans la transformation numérique de votre organisation."
+        },
+        {
+          title: "Intégrité",
+          desc: "Confidentialité stricte et recommandations honnêtes."
+        },
+        {
+          title: "Adaptabilité",
+          desc: "Des méthodes adaptées à votre taille, votre budget et votre maturité."
+        }
       ]
     },
     contact: {
-      title: "Contactez-nous",
-      name: "Nom",
-      email: "Courriel",
+      title: "Parlons de votre projet",
+      name: "Nom complet",
+      email: "Adresse courriel",
       phone: "Téléphone",
       phonePlaceholder: "(optionnel)",
       company: "Entreprise",
@@ -153,10 +170,11 @@ export const content = {
         question: "Question",
         other: "Autre"
       },
-      message: "Message",
-      submit: "Envoyer",
+      message: "Comment pouvons-nous vous aider ?",
+      submit: "Envoyer le message",
       sending: "Envoi en cours...",
-      success: "Merci ! Votre message a été envoyé avec succès. Nous vous répondrons bientôt.",
+      success: "Message envoyé avec succès !",
+      error: "Une erreur s'est produite.",
       errors: {
         required: "Ce champ est requis",
         invalidEmail: "Veuillez entrer une adresse courriel valide",
@@ -170,23 +188,23 @@ export const content = {
       title: "Nos Services",
       list: [
         {
-          title: "Stratégie de Données",
-          desc: "Nous vous aidons à structurer et gouverner vos données pour en faire un actif durable.",
+          title: "Stratégie & Gouvernance",
+          desc: "Auditez et structurez vos données pour garantir leur qualité, leur sécurité et leur conformité.",
           icon: "strategy"
         },
         {
           title: "Automatisation & IA",
-          desc: "Déployez des solutions intelligentes pour automatiser les tâches répétitives et optimiser vos processus.",
+          desc: "Libérez vos équipes des tâches répétitives grâce à des flux de travail intelligents et automatisés.",
           icon: "ai"
         },
         {
           title: "Intelligence d'Affaires",
-          desc: "Tableaux de bord visuels et indicateurs précis pour une prise de décision agile et éclairée.",
+          desc: "Des tableaux de bord interactifs pour piloter votre performance en temps réel.",
           icon: "bi"
         },
         {
           title: "Formation & Coaching",
-          desc: "Rendez vos équipes autonomes grâce à des formations personnalisées sur les outils de données modernes.",
+          desc: "Montez en compétences et assurez l'adoption durable des nouveaux outils par vos équipes.",
           icon: "training"
         }
       ]
@@ -194,13 +212,13 @@ export const content = {
     testimonials: {
       title: "Ils nous font confiance",
       list: [
-        { name: "Marc D.", role: "PDG, TechFlow", text: "Borealytics a transformé notre vision des données. Un véritable levier de croissance." },
-        { name: "Sarah L.", role: "Directrice, GreenCity", text: "Professionnels, pragmatiques et incroyablement efficaces. Le ROI a été immédiat." }
+        { name: "Marc D.", role: "PDG, TechFlow", text: "Borealytics a transformé notre vision des données. Un atout majeur pour notre croissance." },
+        { name: "Sarah L.", role: "Directrice, GreenCity", text: "Professionnel, pragmatique et incroyablement efficace. Le retour sur investissement a été immédiat." }
       ]
     },
     footer: {
       about: "À propos",
-      aboutText: "Nous aidons les organisations à transformer leurs données en décisions.",
+      aboutText: "Expertise en données pour PME et municipalités.",
       quickLinks: "Liens rapides",
       contact: "Contact",
       address: "Montréal, QC",
