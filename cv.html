@@ -85,60 +85,62 @@
         style="background-color: var(--color-primary);">
         <!-- Background Aurora Effect -->
         <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
-            class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full blur-[100px] bg-boreal-secondary">
+            <div
+                class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full blur-[100px] bg-boreal-secondary">
+            </div>
         </div>
         <div class="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full blur-[120px] bg-boreal-accent">
         </div>
-    </div>
 
-    <div
-        class="z-10 w-full max-w-md backdrop-blur-lg rounded-2xl p-8 shadow-2xl bg-boreal-primary/50 border border-white/10">
-        <div class="text-center mb-8">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl mb-4 shadow-lg"
-                style="background: var(--gradient-accent); box-shadow: 0 10px 15px rgba(27, 191, 191, 0.2);">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                    </path>
-                </svg>
-            </div>
-            <h1 id="auth-title" class="text-3xl font-bold text-white tracking-tight">BORÉALYTICS</h1>
-            <p id="auth-subtitle" class="text-sm uppercase tracking-widest mt-2 text-boreal-secondary">Votre boussole
-                numérique</p>
-        </div>
-
-        <form id="auth-form" class="space-y-4">
-            <div>
-                <label id="auth-label" class="block text-sm mb-2 text-white/60">Espace
-                    sécurisé - Accès
-                    client</label>
-                <input type="password" id="token-input"
-                    class="w-full text-white rounded-lg px-4 py-3 focus:outline-none transition-all"
-                    style="background-color: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1);"
-                    onfocus="this.style.borderColor='var(--color-secondary)'; this.style.boxShadow='0 0 0 1px var(--color-secondary)';"
-                    onblur="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.boxShadow='none';"
-                    placeholder="Entrez le mot de passe" />
+        <div
+            class="z-10 w-full max-w-md backdrop-blur-lg rounded-2xl p-8 shadow-2xl bg-boreal-primary/50 border border-white/10">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl mb-4 shadow-lg"
+                    style="background: var(--gradient-accent); box-shadow: 0 10px 15px rgba(27, 191, 191, 0.2);">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                        </path>
+                    </svg>
+                </div>
+                <h1 id="auth-title" class="text-3xl font-bold text-white tracking-tight">BORÉALYTICS</h1>
+                <p id="auth-subtitle" class="text-sm uppercase tracking-widest mt-2 text-boreal-secondary">Votre
+                    boussole
+                    numérique</p>
             </div>
 
-            <p id="auth-error" class="text-red-400 text-sm text-center hidden"></p>
+            <form id="auth-form" class="space-y-4">
+                <div>
+                    <label id="auth-label" class="block text-sm mb-2 text-white/60">Espace
+                        sécurisé - Accès
+                        client</label>
+                    <input type="password" id="token-input"
+                        class="w-full text-white rounded-lg px-4 py-3 focus:outline-none transition-all"
+                        style="background-color: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1);"
+                        onfocus="this.style.borderColor='var(--color-secondary)'; this.style.boxShadow='0 0 0 1px var(--color-secondary)';"
+                        onblur="this.style.borderColor='rgba(255, 255, 255, 0.1)'; this.style.boxShadow='none';"
+                        placeholder="Entrez le mot de passe" />
+                </div>
 
-            <button type="submit" id="auth-button"
-                class="w-full text-white font-semibold py-3 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg flex items-center justify-center gap-2"
-                style="background: var(--gradient-accent); box-shadow: 0 10px 15px rgba(27, 191, 191, 0.3);">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z">
-                    </path>
-                </svg>
-                Accéder au profil
-            </button>
-        </form>
+                <p id="auth-error" class="text-red-400 text-sm text-center hidden"></p>
 
-        <div class="mt-6 text-center">
-            <p class="text-xs text-white/50">Indice : le mot de passe est <span
-                    class="font-mono text-boreal-secondary">boreal</span></p>
+                <button type="submit" id="auth-button"
+                    class="w-full text-white font-semibold py-3 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg flex items-center justify-center gap-2"
+                    style="background: var(--gradient-accent); box-shadow: 0 10px 15px rgba(27, 191, 191, 0.3);">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                    Accéder au profil
+                </button>
+            </form>
+
+            <div class="mt-6 text-center">
+                <p class="text-xs text-white/50">Indice : le mot de passe est <span
+                        class="font-mono text-boreal-secondary">boreal</span></p>
+            </div>
         </div>
-    </div>
     </div>
 
     <!-- CV Content -->
