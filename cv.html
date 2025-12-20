@@ -155,28 +155,28 @@
             </div>
 
             <div class="container mx-auto px-6 relative" style="z-index: 2;">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                    <div style="padding-left: 0; margin-left: 0; flex: 1; min-width: 0;">
-                        <div class="flex items-center gap-3 mb-2">
-                            <span id="header-badge"
-                                class="px-3 py-1 rounded-full bg-boreal-secondary/20 text-boreal-secondary text-xs font-bold border border-boreal-secondary/30">
-                                CONSULTANT DISPONIBLE
-                            </span>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-end">
+                    <!-- Left Column: Name & Title -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <h1 class="text-3xl md:text-4xl font-normal tracking-tight text-white whitespace-nowrap">
+                                <span id="header-name" class="text-white">Ludovic Asselin,</span> <span
+                                    id="header-title" class="text-boreal-secondary">ing., PMP</span>
+                            </h1>
                         </div>
-                        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-2 text-white whitespace-nowrap">
-                            <span id="header-name" class="text-white">Ludovic Asselin,</span> <span id="header-title"
-                                class="text-boreal-secondary">ing., PMP</span>
-                        </h1>
-                        <h2 id="header-subtitle" class="text-xl md:text-2xl text-white/70 text-left whitespace-nowrap">
-                            Président, Boréalytics</h2>
-                        <p id="header-tagline" class="mt-4 text-lg max-w-2xl italic text-white/60">"Votre boussole
-                            numérique pour l'optimisation des PME"</p>
+                        <div>
+                            <h2 id="header-subtitle"
+                                class="text-xl md:text-2xl text-white/70 text-left whitespace-nowrap">
+                                Président, Boréalytics</h2>
+                            <p id="header-tagline" class="mt-2 text-lg italic text-white/60">"Votre boussole
+                                numérique pour l'optimisation des PME"</p>
+                        </div>
                     </div>
 
-                    <div class="flex flex-col gap-3 items-end"
-                        style="flex-shrink: 0; text-align: right; align-self: flex-end;">
+                    <!-- Right Column: Contact Info (Aligned with Experience) -->
+                    <div class="lg:col-span-2 flex flex-col gap-2 lg:items-end lg:text-right">
                         <a id="contact-email-link" href="mailto:ludovic@borealytics.com"
-                            class="flex items-center gap-2 transition-colors justify-end text-white/70 hover:text-white">
+                            class="flex items-center gap-2 transition-colors lg:justify-end text-white/70 hover:text-white">
                             <svg class="w-4 h-4 text-boreal-secondary" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -186,7 +186,7 @@
                             <span id="contact-email">ludovic@borealytics.com</span>
                         </a>
                         <a id="contact-phone-link" href="tel:+14189980901"
-                            class="flex items-center gap-2 transition-colors justify-end text-white/70 hover:text-white">
+                            class="flex items-center gap-2 transition-colors lg:justify-end text-white/70 hover:text-white">
                             <svg class="w-4 h-4 text-boreal-secondary" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -195,7 +195,7 @@
                             </svg>
                             <span id="contact-phone">418-998-0901</span>
                         </a>
-                        <div class="flex items-center gap-2 justify-end text-white/70">
+                        <div class="flex items-center gap-2 lg:justify-end text-white/70">
                             <svg class="w-4 h-4 text-boreal-secondary" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
