@@ -480,6 +480,17 @@ footer p {
     clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
   }
 
+  .hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+
   nav a {
     margin-left: var(--spacing-md);
   }
@@ -505,7 +516,9 @@ footer p {
   select.field-invalid {
     background-position: right 2.5rem center;
   }
-}/* Services Section */
+}
+
+/* Services Section */
 .service-card {
   text-align: center;
   padding: 2.5rem 2rem;
@@ -666,4 +679,3 @@ footer {
   text-align: center;
   padding: 4rem 0;
 }
-
